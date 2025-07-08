@@ -3,8 +3,10 @@
     "relation": ["delegate_permission/common.handle_all_urls"],
     "target": {
       "namespace": "android_app",
-      "package_name": "com.example.app",
-      "sha256_cert_fingerprints": ["YOUR_SHA256_CERT"]
+      "package_name": "com.bookofmemes.mobile",
+      "sha256_cert_fingerprints": [
+        "0C97AF583CB30E1E3E21A7B2F1A241D0990855DB9FEF3F27EEC2D5D815F2DF35"
+      ]
     }
   }
 ]
