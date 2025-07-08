@@ -1,28 +1,34 @@
+// pages/auth/confirm.tsx (if using Next.js)
+
 import { useEffect } from 'react';
 import { useRouter } from 'next/router';
+import { supabase } from '@/lib/supabase'; // adjust path as needed
 
-export default function ConfirmRedirect() {
+export default function ConfirmPage() {
   const router = useRouter();
 
   useEffect(() => {
-    if (router.isReady) {
-      const { token, email, type } = router.query;
+    const hash = window.location.hash.substring(1); // remove leading '#'
+    const params = new URLSearchParams(hash);
+    const access_token = params.get('access_token');
+    const refresh_token = params.get('refresh_token');
 
-      const params = new URLSearchParams({
-        token: String(token || ''),
-        email: String(email || ''),
-        type: String(type || 'signup'),
-      });
-
-      const deepLink = `bookofmemes://auth/confirm?${params.toString()}`;
-      window.location.href = deepLink;
+    if (access_token) {
+      supabase.auth
+        .setSession({ access_token, refresh_token: refresh_token ?? '' })
+        .then(() => {
+          console.log('✅ Email confirmed!');
+          // Redirect to the mobile app with the token
+          window.location.href = `bookofmemes://auth/callback#${hash}`;
+        })
+        .catch((error) => {
+          console.error('❌ Session set failed:', error.message);
+          router.push('/error'); // Optional error screen
+        });
+    } else {
+      router.push('/error'); // Optional error screen
     }
-  }, [router.isReady]);
+  }, []);
 
-  return (
-    <main style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', marginTop: 100 }}>
-      <h1>Redirecting to the Book of Memes app...</h1>
-      <p>If nothing happens, make sure you have the app installed.</p>
-    </main>
-  );
+  return <p>Confirming your email...</p>;
 }
