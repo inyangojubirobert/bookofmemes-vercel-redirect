@@ -1,11 +1,13 @@
-// pages/auth/confirm.tsx (if using Next.js)
+// pages/auth/confirm.tsx
 
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import { useRouter } from 'next/router';
-import { supabase } from '@/lib/supabase'; // adjust path as needed
+import { supabase } from '@/lib/supabase'; // adjust path if needed
 
 export default function ConfirmPage() {
   const router = useRouter();
+  const [redirectHash, setRedirectHash] = useState<string | null>(null);
+  const [status, setStatus] = useState<'checking' | 'success' | 'failed'>('checking');
 
   useEffect(() => {
     const hash = window.location.hash.substring(1); // remove leading '#'
@@ -18,17 +20,61 @@ export default function ConfirmPage() {
         .setSession({ access_token, refresh_token: refresh_token ?? '' })
         .then(() => {
           console.log('✅ Email confirmed!');
-          // Redirect to the mobile app with the token
+          setRedirectHash(hash);
+          setStatus('success');
+
+          // Try auto-redirect
           window.location.href = `bookofmemes://auth/callback#${hash}`;
         })
         .catch((error) => {
           console.error('❌ Session set failed:', error.message);
-          router.push('/error'); // Optional error screen
+          setStatus('failed');
+          router.push('/error'); // Optional
         });
     } else {
-      router.push('/error'); // Optional error screen
+      setStatus('failed');
+      router.push('/error'); // Optional
     }
   }, []);
 
-  return <p>Confirming your email...</p>;
+  const handleOpenApp = () => {
+    if (redirectHash) {
+      window.location.href = `bookofmemes://auth/callback#${redirectHash}`;
+    }
+  };
+
+  return (
+    <div style={{ textAlign: 'center', marginTop: '80px' }}>
+      {status === 'checking' && <p>Confirming your email...</p>}
+
+      {status === 'success' && (
+        <>
+          <h2>✅ Email Confirmed!</h2>
+          <p>You can now return to the app.</p>
+          <button
+            onClick={handleOpenApp}
+            style={{
+              marginTop: '20px',
+              padding: '12px 24px',
+              fontSize: '16px',
+              backgroundColor: '#0070f3',
+              color: '#fff',
+              border: 'none',
+              borderRadius: '6px',
+              cursor: 'pointer',
+            }}
+          >
+            Open Book of Memes App
+          </button>
+        </>
+      )}
+
+      {status === 'failed' && (
+        <>
+          <h2>❌ Confirmation Failed</h2>
+          <p>There was an issue confirming your email.</p>
+        </>
+      )}
+    </div>
+  );
 }
