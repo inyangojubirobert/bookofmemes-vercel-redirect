@@ -3,9 +3,9 @@
     "relation": ["delegate_permission/common.handle_all_urls"],
     "target": {
       "namespace": "android_app",
-      "package_name": "com.bookofmemes.mobile",
+      "package_name": "com.inyangojubirobert7.bookofmemes",
       "sha256_cert_fingerprints": [
-        "0C97AF583CB30E1E3E21A7B2F1A241D0990855DB9FEF3F27EEC2D5D815F2DF35"
+        "B2:AE:C3:0B:14:3D:C3:49:D3:18:0E:87:8E:0F:DF:BC:0A:B4:73:D3:75:55:4E:A6:D3:FF:52:18:C9:26:4F:A0"
       ]
     }
   }
