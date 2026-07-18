@@ -8,9 +8,20 @@ import { useEffect } from 'react';
 import type { GetServerSideProps } from 'next';
 
 const ANDROID_PACKAGE = 'com.inyangojubirobert7.bookofmemes';
-const PLAY_STORE_URL = `https://play.google.com/store/apps/details?id=${ANDROID_PACKAGE}`;
 // TODO: replace once published on the App Store.
 const APP_STORE_URL = 'https://apps.apple.com/app/idYOUR_APP_STORE_ID';
+
+// Google Play stores whatever's on `referrer` through the install and makes
+// it available to the app afterward via the Play Install Referrer API --
+// this is what lets a fresh install (not just an already-installed app)
+// eventually recover the ref code. The app-side piece that actually reads it
+// back out isn't built yet (needs react-native-play-install-referrer + a
+// native rebuild) -- this just makes sure the value survives the trip
+// through the Play Store so that piece has something to read later.
+function buildPlayStoreUrl(ref: string) {
+  const base = `https://play.google.com/store/apps/details?id=${ANDROID_PACKAGE}`;
+  return ref ? `${base}&referrer=${encodeURIComponent('ref=' + ref)}` : base;
+}
 
 interface JoinPageProps {
   ref: string;
@@ -26,7 +37,7 @@ export default function JoinPage({ ref }: JoinPageProps) {
       // Explicit intent targets the package directly -- works even while
       // assetlinks.json verification is still propagating/unverified, since
       // an explicit intent doesn't depend on Digital Asset Links at all.
-      const intentUrl = `intent://join?ref=${encodeURIComponent(ref)}#Intent;scheme=bookofmemes;package=${ANDROID_PACKAGE};S.browser_fallback_url=${encodeURIComponent(PLAY_STORE_URL)};end`;
+      const intentUrl = `intent://join?ref=${encodeURIComponent(ref)}#Intent;scheme=bookofmemes;package=${ANDROID_PACKAGE};S.browser_fallback_url=${encodeURIComponent(buildPlayStoreUrl(ref))};end`;
       window.location.href = intentUrl;
     } else if (isIOS) {
       // No iOS equivalent of an explicit intent -- Universal Links are the
@@ -42,7 +53,7 @@ export default function JoinPage({ ref }: JoinPageProps) {
   }, [ref]);
 
   const isIOSNow = typeof navigator !== 'undefined' && /iphone|ipad|ipod/i.test(navigator.userAgent);
-  const storeUrl = isIOSNow ? APP_STORE_URL : PLAY_STORE_URL;
+  const storeUrl = isIOSNow ? APP_STORE_URL : buildPlayStoreUrl(ref);
 
   return (
     <div
