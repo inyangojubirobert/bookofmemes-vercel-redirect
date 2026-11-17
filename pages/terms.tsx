@@ -33,7 +33,12 @@ export default function Terms() {
       </ul>
 
       <h2>4. The marketplace</h2>
-      <p>The marketplace lets you sell content you own to other users and buy theirs. Ownership of the item moves to the buyer; we are not the seller.</p>
+      <p>
+        The marketplace lets you sell content you own to other users and buy theirs. We are not the seller. Buying an item gives you
+        ownership of it <strong>on Book of Memes only</strong>: it is recorded as yours and you can resell it here. It does not give you the
+        copyright or the right to use the item outside Book of Memes. The full rules, including deadlines, refunds, fees and deposits,
+        are in our <Link href="/marketplace-rules">marketplace rules</Link>, which are part of these terms.
+      </p>
 
       <h3>4.1 Listing</h3>
       <ul>
@@ -48,6 +53,7 @@ export default function Terms() {
         <li>Listings are priced in US dollars unless the seller chooses another currency (naira, pounds, euros or cedis).</li>
         <li><strong>Naira listings</strong> are paid in naira by card or bank transfer through Paystack, and the seller is paid in naira.</li>
         <li><strong>All other listings settle in US dollars.</strong> Dollar listings can be paid through Paystack (charged in naira at the day&apos;s exchange rate plus a small conversion margin) or in USDT. Pound, euro and cedi listings are paid in USDT, converted to dollars once, at the moment you bid, at a rate we record and show you.</li>
+        <li>Buyers abroad can also add funds through a regulated wallet app&apos;s payment link in ten major currencies; each such deposit is checked by a Book of Memes deposit agent before it is credited, as described in the <Link href="/marketplace-rules">marketplace rules</Link>.</li>
         <li>We use a published exchange rate that is refreshed regularly. If a current rate isn&apos;t available, payments in that currency pause until it is.</li>
       </ul>
 
@@ -56,7 +62,7 @@ export default function Terms() {
         <li><strong>Every bid is paid in full when you place it</strong>, plus a <strong>non-refundable bidding fee of 2.5%</strong> (minimum US$0.25, maximum US$10, or the naira equivalent). Buy Now purchases carry the same fee.</li>
         <li><strong>Bids are binding.</strong> You can&apos;t withdraw a bid. The seller can accept any open bid, not only the highest. When a listing ends, the seller has 48 hours to accept one; after that, the highest bid that meets the seller&apos;s reserve price wins automatically.</li>
         <li>If your bid doesn&apos;t win, or the listing closes without a sale, the amount of your bid goes back to your marketplace funds. The bidding fee is kept. Raising your own bid refunds your earlier bid (its fee is kept).</li>
-        <li>Marketplace funds can be used for later bids, or refunded to where they came from: card payments are refunded to the same card through Paystack, and USDT is sent back to the address it came from. They can&apos;t be sent anywhere else.</li>
+        <li>Marketplace funds can be used for later bids, or refunded to where they came from: card payments are refunded to the same card through Paystack, USDT is sent back to the address it came from, and wallet-link deposits are sent back through the same wallet app to the account that paid. They can&apos;t be sent anywhere else.</li>
         <li>USDT payments must be sent from the wallet address you declared, for the exact amount shown, on the network shown. Payments sent to the wrong network or address, or for a different amount, may be lost and can&apos;t always be recovered.</li>
       </ul>
 

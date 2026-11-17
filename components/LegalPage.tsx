@@ -1,4 +1,4 @@
-// Shared layout for the legal pages (/privacy, /terms, /delete-account).
+// Shared layout for the legal pages (/privacy, /terms, /marketplace-rules, /delete-account).
 // Google Play links to these from the store listing and the Data safety form,
 // and the app's Account & Privacy screen opens /privacy and /terms.
 import Head from 'next/head';
@@ -8,7 +8,7 @@ import type { ReactNode } from 'react';
 // Shown on every legal page. Change here if the address or entity changes.
 export const CONTACT_EMAIL = 'support@bookofmemes.cc';
 export const OPERATOR = 'Book of Memes';
-export const LAST_UPDATED = '16 November 2026';
+export const LAST_UPDATED = '17 November 2026';
 
 export default function LegalPage({ title, description, children }: { title: string; description: string; children: ReactNode }) {
   return (
@@ -27,6 +27,7 @@ export default function LegalPage({ title, description, children }: { title: str
           </Link>
           <nav className="legal-nav">
             <Link href="/terms">Terms</Link>
+            <Link href="/marketplace-rules">Marketplace rules</Link>
             <Link href="/privacy">Privacy</Link>
             <Link href="/delete-account">Delete account</Link>
           </nav>
