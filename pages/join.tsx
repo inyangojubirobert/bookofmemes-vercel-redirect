@@ -7,7 +7,7 @@
 import { useEffect } from 'react';
 import type { GetServerSideProps } from 'next';
 
-const ANDROID_PACKAGE = 'com.inyangojubirobert7.bookofmemes';
+const ANDROID_PACKAGE = 'com.bookofmemes.app';
 // TODO: replace once published on the App Store.
 const APP_STORE_URL = 'https://apps.apple.com/app/idYOUR_APP_STORE_ID';
 

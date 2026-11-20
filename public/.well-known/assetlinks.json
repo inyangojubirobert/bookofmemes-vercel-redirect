@@ -3,6 +3,16 @@
     "relation": ["delegate_permission/common.handle_all_urls"],
     "target": {
       "namespace": "android_app",
+      "package_name": "com.bookofmemes.app",
+      "sha256_cert_fingerprints": [
+        "77:C0:D5:98:D2:3C:02:B6:73:6F:E3:73:58:67:62:57:18:11:57:AC:06:7D:60:34:14:9A:02:AF:1B:29:72:39"
+      ]
+    }
+  },
+  {
+    "relation": ["delegate_permission/common.handle_all_urls"],
+    "target": {
+      "namespace": "android_app",
       "package_name": "com.inyangojubirobert7.bookofmemes",
       "sha256_cert_fingerprints": [
         "B2:AE:C3:0B:14:3D:C3:49:D3:18:0E:87:8E:0F:DF:BC:0A:B4:73:D3:75:55:4E:A6:D3:FF:52:18:C9:26:4F:A0"
