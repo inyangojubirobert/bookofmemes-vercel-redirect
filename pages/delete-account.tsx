@@ -66,7 +66,8 @@ export default function DeleteAccount() {
     <LegalPage title="Delete your Book of Memes account" description="Request deletion of your Book of Memes account and the data linked to it.">
       <p>
         You can delete your account here, or in the app: <strong>Profile → Account &amp; Privacy → Delete my account</strong>.
-        Both do the same thing.
+        Both do the same thing. To delete only some data (posts, comments, messages, AI creations) and keep your account, see{' '}
+        <Link href="/delete-data">Delete some of your data</Link>.
       </p>
 
       <h2>What happens</h2>
