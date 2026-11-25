@@ -11,7 +11,7 @@ export default function Terms() {
 
       <h2>1. Your account</h2>
       <ul>
-        <li>You must be at least 13 years old to create an account. If you are under 18, you need a parent or guardian&apos;s permission, and you can&apos;t buy credits, bid, sell or withdraw money without them.</li>
+        <li>You must be at least 18 years old to create an account and use Book of Memes. The kids collections are for parents to use with their children; children must not have their own accounts.</li>
         <li>Give accurate information and keep your login secure. You are responsible for what happens on your account.</li>
         <li>One person, one account. Using several accounts to bid on your own listings, inflate prices, or move money between your accounts is not allowed.</li>
       </ul>

@@ -63,6 +63,10 @@ export default function Privacy() {
         (refunds, bids, payouts), then delete your account, profile, posts that haven&apos;t been sold, messages, contacts you invited and
         payout details. What we keep is listed in section 3.
       </p>
+      <p>
+        To delete only some of your data (posts, comments, messages, AI creations or profile details) and keep your account, follow the
+        steps on our <Link href="/delete-data">delete data page</Link>.
+      </p>
 
       <h2>5. Your rights</h2>
       <p>
@@ -73,8 +77,9 @@ export default function Privacy() {
 
       <h2>6. Children</h2>
       <p>
-        Book of Memes is for people aged 13 and over. The kids collections are made for parents to use with their children; children
-        shouldn&apos;t create accounts. If you believe a child under 13 has given us personal data, email us and we will delete it.
+        Book of Memes is for adults aged 18 and over. The kids collections are made for parents to use with their children; children
+        and teenagers under 18 shouldn&apos;t create accounts. If you believe someone under 18 has given us personal data, email us and we
+        will delete it.
       </p>
 
       <h2>7. Security</h2>
